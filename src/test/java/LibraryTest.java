@@ -3,10 +3,23 @@
  */
 import org.junit.Test;
 import static org.junit.Assert.*;
+import newsApi.newsApiClient.NewsApiClient;
+import newsApi.newsSource.NewsSource;
+import java.util.HashMap;
+import java.io.IOException;
+import java.util.Collection;
 
 public class LibraryTest {
     @Test public void testSomeLibraryMethod() {
-        Library classUnderTest = new Library();
-        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
+        NewsApiClient client = new NewsApiClient("abc");
+        try {
+            for(NewsSource source : client.getSources(new HashMap<String, String>())) {
+                System.out.println(source.toString());
+            }
+        } catch(IOException e) {
+            return;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }
