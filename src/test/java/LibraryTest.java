@@ -37,7 +37,7 @@ public class LibraryTest {
             return;
         }
         Collection<Article> articles;
-        String key = "7207b9a25f2c4f79856d5d2caf4bd1b6";
+        String key = "";
         GetArticlesRequest req = new GetArticlesRequest.Builder(key, source).build();
         try {
             articles = req.execute();
