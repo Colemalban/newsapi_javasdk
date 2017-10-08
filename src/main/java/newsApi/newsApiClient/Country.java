@@ -1,6 +1,6 @@
 package newsApi.newsApiClient;
 
-public enum Country {
+public enum Country implements UrlParameter {
     AUSTRALIA, UNITED_STATES, GERMANY, GREAT_BRITAIN, INDIA, ITALY;
 
     public String toString() {
@@ -17,5 +17,10 @@ public enum Country {
         } else {
             return "it";
         }
+    }
+
+    @Override
+    public String toQueryString() {
+        return String.format("country=%s", this.toString());
     }
 }

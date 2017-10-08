@@ -1,10 +1,10 @@
-package newsApi.newsSource;
+package newsApi.newsApiClient;
 
 import com.google.gson.JsonObject;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class NewsSource {
+public class NewsSource implements UrlParameter {
     
     private String id;
     private String name;
@@ -33,4 +33,9 @@ public class NewsSource {
     public String getId() {
         return id;
     }
+
+	@Override
+	public String toQueryString() {
+        return String.format("source=%s", this.id);
+	}
 }

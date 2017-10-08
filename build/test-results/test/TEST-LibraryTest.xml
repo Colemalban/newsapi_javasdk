@@ -1,77 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="LibraryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-10-06T13:43:38" hostname="wireless-10-104-223-100.umd.edu" time="1.063">
+<testsuite name="LibraryTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-10-08T18:56:03" hostname="wireless-10-104-223-100.umd.edu" time="1.449">
   <properties/>
-  <testcase name="testSomeLibraryMethod" classname="LibraryTest" time="1.063"/>
-  <system-out><![CDATA[The Hindu http://www.thehindu.com
-Metro http://metro.co.uk
-The Lad Bible http://www.theladbible.com
-Die Zeit http://www.zeit.de/index
-TechRadar http://www.techradar.com
-The Guardian (AU) https://www.theguardian.com/au
-NFL News http://www.nfl.com/news
-New Scientist https://www.newscientist.com/section/news
-The Guardian (UK) https://www.theguardian.com/uk
-CNN http://us.cnn.com
-Ars Technica http://arstechnica.com
-Spiegel Online http://www.spiegel.de
-The Sport Bible http://www.thesportbible.com
-IGN http://www.ign.com
-Focus http://www.focus.de
-ESPN Cric Info http://www.espncricinfo.com/
-National Geographic http://news.nationalgeographic.com
-The Next Web http://thenextweb.com
-Recode http://www.recode.net
-The Times of India http://timesofindia.indiatimes.com
-FourFourTwo http://www.fourfourtwo.com/news
-The Verge http://www.theverge.com
-Bloomberg http://www.bloomberg.com
-Hacker News https://news.ycombinator.com
-The New York Times http://www.nytimes.com
-Reddit /r/all https://www.reddit.com/r/all
-The Wall Street Journal http://www.wsj.com
-Newsweek http://www.newsweek.com
-Wired.de https://www.wired.de
-Al Jazeera English http://www.aljazeera.com
-CNBC http://www.cnbc.com
-Handelsblatt http://www.handelsblatt.com
-BBC Sport http://www.bbc.co.uk/sport
-The Economist http://www.economist.com
-Fox Sports http://www.foxsports.com
-Polygon http://www.polygon.com
-Mashable http://mashable.com
-Der Tagesspiegel http://www.tagesspiegel.de
-TalkSport http://talksport.com
-Associated Press https://apnews.com/
-Business Insider (UK) http://uk.businessinsider.com
-ABC News (AU) http://www.abc.net.au/news
-Google News https://news.google.com
-MTV News (UK) http://www.mtv.co.uk/news
-Independent http://www.independent.co.uk
-The Huffington Post http://www.huffingtonpost.com
-The Telegraph http://www.telegraph.co.uk
-T3n http://t3n.de
+  <testcase name="testGetSources" classname="LibraryTest" time="0.972"/>
+  <testcase name="testGetArticles" classname="LibraryTest" time="0.477"/>
+  <system-out><![CDATA[Ars Technica http://arstechnica.com
 Engadget https://www.engadget.com
-ESPN http://espn.go.com
-Buzzfeed https://www.buzzfeed.com
-Daily Mail http://www.dailymail.co.uk/home/index.html
-Financial Times http://www.ft.com/home/uk
-Time http://time.com
-BBC News http://www.bbc.co.uk/news
-Reuters http://www.reuters.com
-The Washington Post https://www.washingtonpost.com
-New York Magazine http://nymag.com
-USA Today http://www.usatoday.com/news
-MTV News http://www.mtv.com/news
-Mirror http://www.mirror.co.uk/
-TechCrunch https://techcrunch.com
-Football Italia http://www.football-italia.net
-Business Insider http://www.businessinsider.com
 Gruenderszene http://www.gruenderszene.de
-Wirtschafts Woche http://www.wiwo.de
-Entertainment Weekly http://www.ew.com
-Bild http://www.bild.de
-Fortune http://fortune.com
-Breitbart News http://www.breitbart.com
+Hacker News https://news.ycombinator.com
+Recode http://www.recode.net
+T3n http://t3n.de
+TechCrunch https://techcrunch.com
+TechRadar http://www.techradar.com
+The Next Web http://thenextweb.com
+The Verge http://www.theverge.com
+Wired.de https://www.wired.de
+Author: Nathan Mattise, Title: Anna and the Apocalypse: A zombie-Christmas-high school musical can’t be this good, url: https://arstechnica.com/gaming/2017/10/anna-and-the-apocalypse-a-zombie-christmas-high-school-musical-cant-be-this-good/...
+Author: Eric Berger, Title: Nate makes nine Atlantic hurricanes in a row—unprecedented in modern era, url: https://arstechnica.com/science/2017/10/with-nate-the-last-nine-atlantic-storms-have-reached-hurricane-status/...
+Author: Valentina Palladino, Title: Smart jewelry tested: do beautiful devices have the brains to compete?, url: https://arstechnica.com/gadgets/2017/10/smart-jewelry-tested-do-beautiful-devices-have-the-brains-to-compete/...
+Author: Kyle Orland, Title: Saying goodbye to the proto-social network of AOL Instant Messenger, url: https://arstechnica.com/gaming/2017/10/remembering-aol-instant-messenger-my-first-social-network/...
+Author: Sam Machkovech, Title: Bethesda: Anti-Nazi game wasn’t meant to “incite political discussions”, url: https://arstechnica.com/gaming/2017/10/bethesda-anti-nazi-game-wasnt-meant-to-incite-political-discussions/...
+Author: David Kravets, Title: Vegan’s life upended after Facebook rant about “carnists” killed in Vegas, url: https://arstechnica.com/tech-policy/2017/10/vegans-life-upended-after-facebook-rant-about-carnists-killed-in-vegas/...
+Author: Jonathan M. Gitlin, Title: From disasters to freight, this driverless fuel cell platform has it covered, url: https://arstechnica.com/cars/2017/10/from-disasters-to-freight-this-driverless-fuel-cell-platform-has-it-covered/...
+Author: Scott K. Johnson, Title: Silicon Valley rose as water use restrictions kicked in, url: https://arstechnica.com/science/2017/10/silicon-valley-rose-as-water-use-restrictions-kicked-in/...
+Author: Aaron Zimmerman, Title: The 7th Continent review: A board game unlike anything you’ve ever played, url: https://arstechnica.com/gaming/2017/10/the-7th-continent-review-a-board-game-unlike-anything-youve-ever-played/...
+Author: Sean Gallagher, Title: Head, limbs of Kim Wall found, sinking story of suspect in submarine murder, url: https://arstechnica.com/tech-policy/2017/10/head-limbs-of-kim-wall-found-sinking-story-of-suspect-in-submarine-murder/...
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
