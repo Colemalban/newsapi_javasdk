@@ -66,7 +66,12 @@ public class GetArticlesRequest {
         JsonArray jsonArticles = body.get("articles").getAsJsonArray();
         Collection<Article> articles = new HashSet<>();
         for(JsonElement article : jsonArticles) {
-            articles.add(new Article(article.getAsJsonObject()));
+            try {
+                articles.add(new Article(article.getAsJsonObject()));
+            } catch(Exception e) {
+                //Do nothing, we're just dropping bad articles for now
+                //TODO make the article handling more elegant lol
+            }
         }
         return articles;
     }
