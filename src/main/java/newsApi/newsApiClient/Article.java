@@ -33,4 +33,24 @@ public class Article {
     public String toString() {
         return String.format("Author: %s, Title: %s, url: %s...", author, title, url);
     }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getDatePublishedString() {
+        return datePublishedString;
+    }
 }

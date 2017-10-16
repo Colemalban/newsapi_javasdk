@@ -1,6 +1,7 @@
 package newsApi.newsApiClient;
 
-public enum Language implements UrlParameter {
+public enum Language {
+
     ENGLISH, GERMAN, FRENCH;
 
     public String toString() {
@@ -13,10 +14,4 @@ public enum Language implements UrlParameter {
         }
     }
 
-	@Override
-	public String toQueryString() {
-        return String.format("language=%s", this.toString());
-	}
-
-    
 }

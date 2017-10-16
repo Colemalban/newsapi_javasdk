@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class NewsSource implements UrlParameter {
+public class NewsSource {
     
     private String id;
     private String name;
@@ -34,8 +34,28 @@ public class NewsSource implements UrlParameter {
         return id;
     }
 
-	@Override
-	public String toQueryString() {
-        return String.format("source=%s", this.id);
-	}
+    public String getName() {
+        return name;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
 }

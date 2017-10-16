@@ -2,6 +2,7 @@ package newsApi.newsApiClient;
 
 import java.util.List;
 import com.google.gson.JsonParser;
+import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -46,22 +47,22 @@ public class GetArticlesRequest {
         this.sort = b.sort;
     }
 
-    public String toUrl() {
-        StringBuilder url = new StringBuilder();
-        url.append("https://newsapi.org/v1/articles?");
-        List<String> params = new ArrayList<>();
-        params.add(String.format("apiKey=%s", apiKey));
-        params.add(source.toQueryString());
+    public HttpUrl toUrl() {
+        HttpUrl.Builder urlBuilder = new HttpUrl.Builder().addEncodedPathSegment("https://newsapi.org/v1/articles");
+        urlBuilder = urlBuilder.addQueryParameter("apiKey", apiKey).addQueryParameter("source", source.getId());
         if(sort != null) {
-            params.add(sort.toQueryString());
+            return urlBuilder.addQueryParameter("sortBy", sort.toString()).build();
         }
-        url.append(String.join("&", params));
-        return url.toString();
+        return urlBuilder.build();
     }
 
     public Collection<Article> execute() throws IOException {
         OkHttpClient client = new OkHttpClient();
         Response resp = client.newCall(new Request.Builder().get().url(this.toUrl()).build()).execute();
+        if(resp.code() != 200) {
+            throw new IOException("Failed HTTP Request");
+        }
+        //TODO move this JSON parsing code somewhere else
         JsonObject body = new JsonParser().parse(resp.body().string()).getAsJsonObject();
         JsonArray jsonArticles = body.get("articles").getAsJsonArray();
         Collection<Article> articles = new HashSet<>();

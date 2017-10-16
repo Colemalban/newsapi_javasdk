@@ -1,6 +1,6 @@
 package newsApi.newsApiClient;
 
-public enum Category implements UrlParameter {
+public enum Category {
     BUSINESS, ENTERTAINMENT, GAMING, GENERAL, MUSIC, POLITICS, SCIENCE, SPORT, TECHNOLOGY;
 
     public String toString() {
@@ -24,9 +24,4 @@ public enum Category implements UrlParameter {
             return "technology";
         }
     }
-
-	@Override
-	public String toQueryString() {
-        return String.format("category=%s", this.toString());
-	}
 }

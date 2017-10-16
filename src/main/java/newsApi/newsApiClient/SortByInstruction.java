@@ -1,6 +1,6 @@
 package newsApi.newsApiClient;
 
-public enum SortByInstruction implements UrlParameter {
+public enum SortByInstruction {
     TOP, LATEST, POPULAR;
 
     public String toString() {
@@ -11,9 +11,5 @@ public enum SortByInstruction implements UrlParameter {
         } else {
             return "popular";
         }
-    }
-
-    public String toQueryString() {
-        return String.format("sortBy=%s", this.toString());
     }
 }

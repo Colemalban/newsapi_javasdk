@@ -12,6 +12,7 @@ import okhttp3.Response;
 import java.io.IOException;
 import java.util.ArrayList; 
 import java.util.Collection;
+import okhttp3.HttpUrl; 
 
 public class GetSourcesRequest {
 
@@ -50,25 +51,26 @@ public class GetSourcesRequest {
         this.country = builder.country;
     }
 
-    public String toUrl() {
-        StringBuilder url = new StringBuilder("https://newsapi.org/v1/sources?");
-        List<String> params = new ArrayList<>();
+    public HttpUrl toUrl() {
+        HttpUrl.Builder urlBuilder = new HttpUrl.Builder().addEncodedPathSegment("https://newsapi.org/v1/sources");
         if(category != null) {
-            params.add(category.toQueryString());
+            urlBuilder.addQueryParameter("category", category.toString());
         }
         if(country != null) {
-            params.add(country.toQueryString());
+            urlBuilder.addQueryParameter("country", country.toString());
         }
         if(language != null) {
-            params.add(language.toQueryString());
+            urlBuilder.addQueryParameter("language", language.toString());
         }
-        url.append(String.join("&", params));
-        return url.toString();
+        return urlBuilder.build();
     }
 
     public Collection<NewsSource> execute() throws IOException {
         OkHttpClient client = new OkHttpClient();
         Response resp = client.newCall(new Request.Builder().get().url(this.toUrl()).build()).execute();
+        if(resp.code() != 200) {
+            throw new IOException("Failed http request");
+        }
         JsonObject bodyRoot = new JsonParser().parse(resp.body().string()).getAsJsonObject();
         JsonArray jsonSources = bodyRoot.get("sources").getAsJsonArray();
         Collection<NewsSource> sources = new LinkedList<>();
