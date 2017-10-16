@@ -16,14 +16,18 @@ public class NewsSource {
     private Collection<String> sortByInstructions;
 
     public NewsSource(JsonObject object) {
-        this.id = object.get("id").getAsString();
-        this.name = object.get("name").getAsString();
-        this.url = object.get("url").getAsString();
-        this.description = object.get("description").getAsString();
-        this.category = object.get("category").getAsString();
-        this.language = object.get("language").getAsString();
-        this.country = object.get("country").getAsString();
-        this.sortByInstructions = new HashSet<>();
+        try {
+            this.id = object.get("id").getAsString();
+            this.name = object.get("name").getAsString();
+            this.url = object.get("url").getAsString();
+            this.description = object.get("description").getAsString();
+            this.category = object.get("category").getAsString();
+            this.language = object.get("language").getAsString();
+            this.country = object.get("country").getAsString();
+            this.sortByInstructions = new HashSet<>();
+        } catch(NullPointerException e) {
+            throw new IllegalArgumentException();
+        }
     }
 
     public String toString() {
