@@ -18,7 +18,7 @@ public class GetArticlesRequestTest {
 
     @Before
     public void setup() {
-        key = "7207b9a25f2c4f79856d5d2caf4bd1b6";
+        key = "NOT A KEY";
         String sourceString = "{\"id\":\"abc-news-au\",\"name\":\"ABC News (AU)\",\"description\":\"Australia's most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.\",\"url\":\"http://www.abc.net.au/news\",\"category\":\"general\",\"language\":\"en\",\"country\":\"au\",\"urlsToLogos\":{\"small\":\"\",\"medium\":\"\",\"large\":\"\"},\"sortBysAvailable\":[\"top\"]}";
         source = new NewsSource(new JsonParser().parse(sourceString).getAsJsonObject());
     }
