@@ -1,7 +1,6 @@
 package newsApi.newsApiClient;
 
 import com.google.gson.JsonObject;
-import com.sun.javaws.exceptions.InvalidArgumentException;
 
 /**
  * This class will represent an article returned from the API.
