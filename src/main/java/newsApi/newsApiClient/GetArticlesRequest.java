@@ -32,7 +32,9 @@ public class GetArticlesRequest {
         }
 
         public Builder sortBy(SortByInstruction sort) {
-            this.sort = sort;
+            if(source.isValidSortInstruction(sort)) {
+                this.sort = sort;
+            }
             return this;
         }
 
@@ -48,7 +50,7 @@ public class GetArticlesRequest {
     }
 
     public HttpUrl toUrl() {
-        HttpUrl.Builder urlBuilder = new HttpUrl.Builder().addEncodedPathSegment("https://newsapi.org/v1/articles");
+        HttpUrl.Builder urlBuilder = new HttpUrl.Builder().scheme("https").host("newsapi.org").addPathSegment("v1").addPathSegment("articles");
         urlBuilder = urlBuilder.addQueryParameter("apiKey", apiKey).addQueryParameter("source", source.getId());
         if(sort != null) {
             return urlBuilder.addQueryParameter("sortBy", sort.toString()).build();

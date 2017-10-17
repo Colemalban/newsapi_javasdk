@@ -52,7 +52,7 @@ public class GetSourcesRequest {
     }
 
     public HttpUrl toUrl() {
-        HttpUrl.Builder urlBuilder = new HttpUrl.Builder().addEncodedPathSegment("https://newsapi.org/v1/sources");
+        HttpUrl.Builder urlBuilder = new HttpUrl.Builder().scheme("https").host("newsapi.org").addPathSegment("v1").addPathSegment("sources");
         if(category != null) {
             urlBuilder.addQueryParameter("category", category.toString());
         }

@@ -19,4 +19,23 @@ public enum Country {
             return "it";
         }
     }
+
+    public static Country stringToCountry(String str) {
+        switch(str.toLowerCase()) {
+            case "au":
+                return AUSTRALIA;
+            case "us":
+                return UNITED_STATES;
+            case "de":
+                return GERMANY;
+            case "gb":
+                return GREAT_BRITAIN;
+            case "in":
+                return INDIA;
+            case "it":
+                return ITALY;
+            default:
+                throw new IllegalArgumentException();
+        }
+    }
 }
