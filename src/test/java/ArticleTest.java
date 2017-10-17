@@ -30,6 +30,7 @@ public class ArticleTest {
         assertEquals(article.getUrl(), "https://thenextweb.com/insider/2017/10/16/addicts-tale-week-without-social-media/");
         assertEquals(article.getDescription(), "By Monday I’d deleted Instagram, Twitter, Snapchat, Facebook, Pinterest and LinkedIn applications off my phone and logged out of all accounts on my laptop: it had begun Hi, my name is Inés and I’m a social media addict. But this week, I decided to go through digital detox by turning off all of my major …");
         assertEquals(article.getDatePublishedString(),"2017-10-16T19:04:20Z");
+        assertEquals(article.getImageUrl(), "https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2014/12/chained-smartphone-addict-social.jpg");
     }
 
     @Test(expected = IllegalArgumentException.class)

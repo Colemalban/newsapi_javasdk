@@ -1,7 +1,7 @@
 package newsApi.newsApiClient;
 
 public enum Category {
-    BUSINESS, ENTERTAINMENT, GAMING, GENERAL, MUSIC, POLITICS, SCIENCE, SPORT, TECHNOLOGY;
+    BUSINESS, ENTERTAINMENT, GAMING, GENERAL, MUSIC, POLITICS, SCIENCE_AND_NATURE, SPORT, TECHNOLOGY;
 
     public String toString() {
         if(this == BUSINESS) {
@@ -16,7 +16,7 @@ public enum Category {
             return "music";
         } else if(this == POLITICS) {
             return "politics";
-        } else if(this == SCIENCE) {
+        } else if(this == SCIENCE_AND_NATURE) {
             return "science-and-nature";
         } else if(this == SPORT) {
             return "sport";
@@ -24,4 +24,8 @@ public enum Category {
             return "technology";
         }
     }
+
+   public static Category stringToCategory(String str) {
+        return Category.valueOf(str.toUpperCase().replace('-','_'));
+   }
 }

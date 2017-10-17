@@ -1,6 +1,6 @@
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import newsApi.newsApiClient.NewsSource;
+import newsApi.newsApiClient.*;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -24,13 +24,18 @@ public class NewsSourceTest {
     @Test
     public void testValidSource() {
         NewsSource s = new NewsSource(validSource);
-        assertEquals(s.getCategory(), "general");
-        assertEquals(s.getCountry(), "au");
+        assertEquals(s.getCategory(), Category.GENERAL);
+        assertEquals(s.getCountry(), Country.AUSTRALIA);
         assertEquals(s.getId(), "abc-news-au");
         assertEquals(s.getUrl(), "http://www.abc.net.au/news");
         assertEquals(s.getDescription(), "Australia's most trusted source of local, national and world news. Comprehensive, independent, in-depth analysis, the latest business, sport, weather and more.");
-        assertEquals(s.getLanguage(), "en");
+        assertEquals(s.getLanguage(), Language.ENGLISH);
         assertEquals(s.getName(), "ABC News (AU)");
+        assertTrue(s.isValidSortInstruction(SortByInstruction.TOP));
+        assertFalse(s.isValidSortInstruction(SortByInstruction.LATEST));
+        assertEquals(s.getSmallLogoUrl(), "");
+        assertEquals(s.getMediumLogoUrl(), "");
+        assertEquals(s.getLargeLogoUrl(), "");
     }
 
     @Test(expected = IllegalArgumentException.class)

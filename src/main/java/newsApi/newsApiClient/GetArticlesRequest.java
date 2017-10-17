@@ -32,7 +32,9 @@ public class GetArticlesRequest {
         }
 
         public Builder sortBy(SortByInstruction sort) {
-            this.sort = sort;
+            if(source.isValidSortInstruction(sort)) {
+                this.sort = sort;
+            }
             return this;
         }
 
