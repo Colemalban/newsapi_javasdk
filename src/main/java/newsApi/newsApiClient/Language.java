@@ -14,4 +14,17 @@ public enum Language {
         }
     }
 
+    public static Language stringToLanguage(String str) {
+        switch(str) {
+            case "en":
+                return ENGLISH;
+            case "fr":
+                return FRENCH;
+            case "de":
+                return GERMAN;
+            default:
+                throw new IllegalArgumentException();
+        }
+    }
+
 }

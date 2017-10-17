@@ -1,6 +1,7 @@
 package newsApi.newsApiClient;
 
 import com.google.gson.JsonObject;
+import com.sun.javaws.exceptions.InvalidArgumentException;
 
 /**
  * This class will represent an article returned from the API.
@@ -10,6 +11,7 @@ public class Article {
     private String author;
     private String title;
     private String url;
+    private String imageUrl;
     private String description;
     private String datePublishedString;
 
@@ -19,11 +21,16 @@ public class Article {
      *
      */
     public Article(JsonObject json) {
-        author = json.get("author").getAsString();
-        title = json.get("title").getAsString();
-        description = json.get("description").getAsString();
-        url = json.get("url").getAsString();
-        datePublishedString = json.get("publishedAt").getAsString();
+        try {
+            author = json.get("author").getAsString();
+            title = json.get("title").getAsString();
+            description = json.get("description").getAsString();
+            url = json.get("url").getAsString();
+            datePublishedString = json.get("publishedAt").getAsString();
+            imageUrl = json.get("urlToImage").getAsString();
+        } catch(NullPointerException n) {
+            throw new IllegalArgumentException();
+        }
     }
 
     /**
@@ -52,5 +59,9 @@ public class Article {
 
     public String getDatePublishedString() {
         return datePublishedString;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 }

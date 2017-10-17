@@ -1,8 +1,9 @@
 package newsApi.newsApiClient;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
 public class NewsSource {
     
@@ -10,20 +11,43 @@ public class NewsSource {
     private String name;
     private String url;
     private String description;
-    private String category;
-    private String language;
-    private String country;
-    private Collection<String> sortByInstructions;
+    private Category category;
+    private Language language;
+    private Country country;
+    private Set<SortByInstruction> sortByInstructions;
+    private String smallLogoUrl;
+    private String mediumLogoUrl;
+    private String largeLogoUrl;
 
     public NewsSource(JsonObject object) {
-        this.id = object.get("id").getAsString();
-        this.name = object.get("name").getAsString();
-        this.url = object.get("url").getAsString();
-        this.description = object.get("description").getAsString();
-        this.category = object.get("category").getAsString();
-        this.language = object.get("language").getAsString();
-        this.country = object.get("country").getAsString();
-        this.sortByInstructions = new HashSet<>();
+        try {
+            this.id = object.get("id").getAsString();
+            this.name = object.get("name").getAsString();
+            this.url = object.get("url").getAsString();
+            this.description = object.get("description").getAsString();
+            this.category = Category.stringToCategory(object.get("category").getAsString());
+            this.language = Language.stringToLanguage(object.get("language").getAsString());
+            this.country = Country.stringToCountry(object.get("country").getAsString());
+            this.sortByInstructions = new HashSet<>();
+            for(JsonElement ele : object.get("sortBysAvailable").getAsJsonArray()) {
+                String sortBy = ele.getAsString();
+                sortByInstructions.add(SortByInstruction.valueOf(sortBy.toUpperCase()));
+            }
+            JsonObject urls = object.get("urlsToLogos").getAsJsonObject();
+            smallLogoUrl = urls.get("small").getAsString();
+            mediumLogoUrl = urls.get("medium").getAsString();
+            largeLogoUrl = urls.get("large").getAsString();
+        } catch(NullPointerException e) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public boolean isValidSortInstruction(SortByInstruction sort) {
+        return sortByInstructions.contains(sort);
+    }
+
+    public Set<SortByInstruction> getValidSorts() {
+        return sortByInstructions;
     }
 
     public String toString() {
@@ -46,16 +70,28 @@ public class NewsSource {
         return description;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public String getLanguage() {
+    public Language getLanguage() {
         return language;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
+    }
+
+    public String getSmallLogoUrl() {
+        return smallLogoUrl;
+    }
+
+    public String getMediumLogoUrl() {
+        return mediumLogoUrl;
+    }
+
+    public String getLargeLogoUrl() {
+        return largeLogoUrl;
     }
 
 }
